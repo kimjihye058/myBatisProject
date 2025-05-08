@@ -14,7 +14,7 @@ public class MemoServiceImpl implements MemoService{
 
     @Override
     public void insert(MemoDTO dto) {
-
+        dao.insert(dto);
     }
 
     @Override
@@ -29,6 +29,7 @@ public class MemoServiceImpl implements MemoService{
 
     @Override
     public List<MemoDTO> listAll() {
-        return List.of();
+        List<MemoDTO> a = dao.listAll();
+        return a;
     }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.hs.study.myBatisPrj.DAO.MemoDAO">
+<!--    namespace: dao가 있는 풀페키지 이름을 작성해줘야 함.(kr..)-->
+<!--id는 인터페이스에서 함수 이름을 뜻함(즉, insert)-->
+<!--insert할 때, 어떤 값을 insert시킬지 매개변수의 풀페키지 이름을 작성(kr..)-->
+    <insert id="insert" parameterType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
+<!--        SQL 작성-->
+        insert into memo(idx, writer, memo) values(memo_seq.nextval, #{writer}, #{memo})
+    </insert>
+<!--    id는 mapper class의 함수 이름이어야 함-->
+    <select id="listAll" resultType="kr.hs.study.myBatisPrj.DTO.MemoDTO">
+        select * from memo order by idx desc
+    </select>
+</mapper>
