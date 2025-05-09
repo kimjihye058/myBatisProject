@@ -5,73 +5,60 @@
     <title>Title</title>
 </head>
 <style>
-    body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px;
-        }
-
     table {
-      border: 1px #a39485 solid;
-      font-size: .9em;
-      box-shadow: 0 2px 5px rgba(0,0,0,.25);
-      width: 100%;
-      border-collapse: collapse;
-      border-radius: 5px;
-      overflow: hidden;
+        border: 1px #a39485 solid;
+        font-size: .9em;
+        box-shadow: 0 2px 5px rgba(0,0,0,.25);
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 5px;
+        overflow: hidden;
     }
 
     th {
-      text-align: left;
+        text-align: left;
     }
 
      td, th {
-      padding: 1em .5em;
-      vertical-align: middle;
+        padding: 1em .5em;
+        vertical-align: middle;
     }
 
      td {
-      border-bottom: 1px solid rgba(0,0,0,.1);
-      background: #fff;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        background: #fff;
     }
 
-    a {
-      color: #73685d;
-    }
+    @media all and (max-width: 768px) {
 
-     @media all and (max-width: 768px) {
+        table, th, td, tr {
+            display: block;
+        }
 
-      table, th, td, tr {
-        display: block;
-      }
+        th {
+            text-align: right;
+        }
 
-      th {
-        text-align: right;
-      }
+        table {
+            position: relative;
+            padding-bottom: 0;
+            border: none;
+            box-shadow: 0 0 10px rgba(0,0,0,.2);
+        }
 
-      table {
-        position: relative;
-        padding-bottom: 0;
-        border: none;
-        box-shadow: 0 0 10px rgba(0,0,0,.2);
-      }
+        tr {
+            display: inline-block;
+            vertical-align: top;
+        }
 
-       tr {
-        display: inline-block;
-        vertical-align: top;
-      }
+        th {
+            border-bottom: 1px solid #a39485;
+        }
 
-      th {
-        border-bottom: 1px solid #a39485;
-      }
-
-      td {
-        border-bottom: 1px solid #e5e5e5;
-      }
-  }
+        td {
+            border-bottom: 1px solid #e5e5e5;
+        }
+     }
 </style>
 <body>
 <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>

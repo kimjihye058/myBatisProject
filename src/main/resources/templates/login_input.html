@@ -4,9 +4,62 @@
   <meta charset="UTF-8">
   <title>Login</title>
 </head>
+<style>
+  h1 {
+      color: #333;
+      margin-bottom: 30px;
+  }
+
+  form {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+  }
+
+  label {
+      font-weight: bold;
+      display: block;
+      margin: 15px 0 5px;
+      color: #555;
+  }
+
+  input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+  }
+
+  input:focus {
+      border-color: #04AA6D;
+      outline: none;
+  }
+
+  button {
+      width: 100%;
+      margin-top: 20px;
+      background-color: #04AA6D;
+      border: none;
+      color: white;
+      padding: 14px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+      background-color: #038e5b;
+  }
+</style>
 <body>
 <th:block th:replace="~{fragments/menu::menuFragment}"></th:block>
-
+<h1>Login</h1>
 <form method="post" action="resultLogin">
   아이디 : <input type="text" name="userId"><br>
   비밀번호 : <input type="password" name="userPw"><br>
