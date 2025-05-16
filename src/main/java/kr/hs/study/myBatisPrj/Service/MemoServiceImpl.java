@@ -18,8 +18,9 @@ public class MemoServiceImpl implements MemoService{
     }
 
     @Override
-    public void update(int idx) {
-
+    public void update(MemoDTO dto) {
+        dao.update(dto);
+        System.out.println("service: " + dto);
     }
 
     @Override
@@ -32,4 +33,10 @@ public class MemoServiceImpl implements MemoService{
         List<MemoDTO> a = dao.listAll();
         return a;
     }
+
+    @Override
+    public MemoDTO selectOne(int idx) {
+        return dao.selectOne(idx);
+    }
+
 }

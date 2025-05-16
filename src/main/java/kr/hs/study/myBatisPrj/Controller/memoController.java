@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -16,21 +17,30 @@ public class memoController {
     @Autowired
     private MemoService service;
 
-    @GetMapping("/Memo")
-    public String memo(){
-        return "memo_input";
-    }
-
-    @PostMapping("/resultMemo")
+    @PostMapping("/memo_input")
     public String insert(MemoDTO dto){
         service.insert(dto);    // 서비스의 인서트 호출
-        return "resultMemo";
+        return "redirect:/Memo";
     }
-    @GetMapping("/Memo/list")
+    @GetMapping("/Memo")
     public String listAll(Model model){
         List<MemoDTO> all = service.listAll();
+        System.out.println(all);
         model.addAttribute("data", all);
         System.out.println("size: " + all.size());
-        return "resultMemo";
+        return "Memo";
+    }
+
+    @GetMapping("/edit/{idx}")
+    public String edit_form(@PathVariable("idx") int idx, Model model) {
+        System.out.println("index: " + idx);
+        MemoDTO dto = service.selectOne(idx);
+        model.addAttribute("one", dto);
+        return "edit_form";
+    }
+    @PostMapping("/edit")
+    public String update(MemoDTO dto){
+        service.update(dto);
+        return "redirect:/Memo";
     }
 }
